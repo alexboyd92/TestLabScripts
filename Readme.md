@@ -13,4 +13,5 @@ Introduction:
 
 |Story                   |     Time required | Risk 0-10(low-High)  | Percent complete  | Actual time   | Notes  |
 |------------------------|-------------------|----------------------|-------------------|---------------|--------|
-|Student will be able to plug their host device into a switch to join the network   |  4 hours |   4|   90%|6 hours| Need switch  |
+|Student will be able to plug 
+their host device into a switch to join the network   |  4 hours |   4|   90%|6 hours| Need switch  |
