@@ -10,3 +10,9 @@ Team:
       Alex Boyd            
 Introduction:  
       Kapanga wants a system in place to test senior design projects with respect to security. There will be two actors upon the system. One is students who will be able to request the scans or test the other will be Maintainer who will be responsible for maintenance of the system or addition of features later down the line. 
+
+|Story    |  Time required | Risk 0-10(low-High)  | Percent complete  | Actual time   |   |
+|---|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
