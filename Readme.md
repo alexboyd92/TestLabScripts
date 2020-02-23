@@ -2,7 +2,7 @@
 CS4900
 Project: Testing Lab
 Stories
-10/11/2019 - 11/15/2019
+10/11/2019 - 11/15/2019  
 Team: Matt Wyant            
       Daniel Musallam  
       Sean Kerrigan          
