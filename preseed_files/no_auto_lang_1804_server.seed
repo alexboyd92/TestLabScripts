@@ -2,7 +2,7 @@
 ### Preseed for Ubuntu 18.04
 # Derived from: https://help.ubuntu.com/lts/installation-guide/example-preseed.txt
 
-d-i pkgsel/install-language-support boolean false
+
 
 ### Usage
 # We recommend to use the build-iso.sh script to build an image with embedded
@@ -203,6 +203,7 @@ d-i apt-setup/security_host string security.ubuntu.com
 d-i apt-setup/security_path string /ubuntu
 
 ### Package selection
+d-i pkgsel/install-language-support boolean false
 d-i tasksel/first multiselect none
 d-i pkgsel/include string openssh-server python
 d-i pkgsel/upgrade select full-upgrade
