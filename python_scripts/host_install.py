@@ -93,6 +93,14 @@ def startDHCP():
 
 	return 0
 
+def configIP():
+	'sudo nano /etc/network/interfaces'
+	localFileLocation = '/etc/network/interfaces'
+	replacefile = '/home/snacker/cs4900/openvas/git_repo/TestLabScripts/config/interfaces'
+	print('configuring Ip settings')
+	os.system('cp '+replacefile+' '+localFileLocation)
+	print('Ip settings configured')
+	return 0
 
 def  main():
 	gitUser = input('github Username:')
@@ -102,6 +110,7 @@ def  main():
 	installOpenssh()
 	installDHCP()
 	configDHCP(gitUser, gitPass)
+	configIP()
 	startDHCP()
 	update()
 
