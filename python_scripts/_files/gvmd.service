@@ -1,0 +1,21 @@
+[Unit]
+Description=Job that runs the gvm daemon
+Documentation=man:gvm
+After=postgresql.service
+
+[Service]
+Type=forking
+User=gvm
+Group=gvm
+PIDFile=/opt/gvm/var/run/gvmd.pid
+WorkingDirectory=/opt/gvm
+ExecStart=/opt/gvm/sbin/gvmd  --osp-vt-update=/opt/gvm/var/run/ospd.sock
+Restart=on-failure
+RestartSec=2min
+KillMode=process
+KillSignal=SIGINT
+GuessMainPID=no
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

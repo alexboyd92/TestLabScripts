@@ -1,0 +1,19 @@
+[Unit]
+Description=Job that runs the gsa daemon
+Documentation=man:gsa
+After=postgresql.service
+
+[Service]
+Type=forking
+PIDFile=/opt/gvm/var/run/gsad.pid
+WorkingDirectory=/opt/gvm
+ExecStart=/opt/gvm/sbin/gsad --drop-privileges=gvm
+Restart=on-failure
+RestartSec=2min
+KillMode=process
+KillSignal=SIGINT
+GuessMainPID=no
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
