@@ -1,0 +1,99 @@
+### Localization
+# Preseeding only locale sets language, country and locale.
+d-i debian-installer/locale string en_US
+
+# Keyboard selection.
+# Disable automatic (interactive) keymap detection.
+d-i console-setup/ask_detect boolean false
+d-i keyboard-configuration/xkb-keymap select us
+
+### Network configuration
+# Disable network configuration entirely. This is useful for cdrom
+# installations on non-networked devices where the network questions,
+# warning and long timeouts are a nuisance.
+d-i netcfg/enable boolean false
+
+# Disable that annoying WEP key dialog.
+d-i netcfg/wireless_wep string
+
+
+### Clock and time zone setup
+# Controls whether or not the hardware clock is set to UTC.
+d-i clock-setup/utc boolean true
+
+
+# You may set this to any valid setting for $TZ; see the contents of
+# /usr/share/zoneinfo/ for valid values.
+d-i time/zone string US/Eastern
+
+# Controls whether to use NTP to set the clock during the install
+d-i clock-setup/ntp boolean true
+
+
+# To create a normal user account.
+d-i passwd/user-fullname string testlab
+d-i passwd/username string testlab
+d-i passwd/user-password-crypted password $6$uwFk5y1T$Yls0DJBbkFPI9X4tUq6JOrO3X8m7IBtLMYapWg.HZc62rPmOv.mJeWxmd7BJtw9Udu10Ci8Qv6R6r/GYBDK30/
+
+# The installer will warn about weak passwords. If you are sure you know
+# what you're doing and want to override it, uncomment this.
+d-i user-setup/allow-password-weak boolean true
+
+
+### Partitioning
+## Partitioning example
+# If the system has free space you can choose to only partition that space.
+# This is only honoured if partman-auto/method (below) is not set.
+# Alternatives: custom, some_device, some_device_crypto, some_device_lvm.
+
+
+# auto-partition, all files in one partition
+d-i partman-auto/method string regular
+d-i partman-auto/choose_recipe select atomic
+d-i partman/choose_partition select finish
+d-i partman/confirm_nooverwrite boolean true
+d-i partman/confirm boolean true
+
+
+
+
+
+
+### Package selection
+tasksel tasksel/first multiselect ubuntu-desktop
+# install standard system with ssh-server
+#tasksel tasksel/first multiselect standard, ssh-server
+#tasksel tasksel/first multiselect standard, ubuntu-server
+d-i pkgsel/include string openssh-server
+
+
+# Policy for applying updates. May be "none" (no automatic updates),
+# "unattended-upgrades" (install security updates automatically), or
+# "landscape" (manage system with Landscape).
+d-i pkgsel/update-policy select unattended-upgrades
+
+# This is fairly safe to set, it makes grub install automatically to the MBR
+# if no other operating system is detected on the machine.
+d-i grub-installer/only_debian boolean true
+
+# This one makes grub-installer install to the MBR if it also finds some other
+# OS, which is less safe as it might not be able to boot that other OS.
+d-i grub-installer/with_other_os boolean true
+
+tasksel	tasksel/first	multiselect ubuntu-desktop
+
+
+
+# Avoid that last message about the install being complete.
+d-i grub-installer/grub2_instead_of_grub_legacy boolean true
+d-i grub-installer/only_debian boolean true
+d-i finish-install/reboot_in_progress note
+
+
+# This will prevent the installer from ejecting the CD during the reboot,
+# which is useful in some situations.
+#d-i cdrom-detect/eject boolean false
+
+
+
+
