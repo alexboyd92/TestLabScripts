@@ -7,10 +7,10 @@ import os
   
 
 gitHub_address = 'https://github.com/alexboyd92/TestLabScripts.git'
-localFileLocation = '/home/snacker/cs4900/openvas/testFileReplace/replace.txt'
-localGit = '/home/snacker/cs4900/openvas/git_repo/'
-replacefile = '/home/snacker/cs4900/openvas/git_repo/TestLabScripts/test_py/test_replacefile'
-homeDir = '/home/snacker/'
+localFileLocation = '/etc/default/isc-dhcp-server'
+localGit = '/home'
+replacefile = '/home/TestLabScripts/config/isc-dhcp-server'
+homeDir = '/home/testlab/'
 install = 'sudo apt-get install '
 # runs a bash command
 def runCommand(bashCommand):
@@ -54,16 +54,25 @@ def installGit():
 
 # grabs files from github and places them into the correct spots
 def configDHCP(gitUser, gitPass):
+	localFileLocation = '/etc/default/isc-dhcp-server'
+	localGit = '/home'
+	replacefile = '/home/TestLabScripts/config/isc-dhcp-server'
+	
 	# auto inputs username/ password
 	getConfigFiles = 'sudo git clone'+gitUser+':'+gitPass+'@'+ gitHub_address
 	#testing
 	#getConfigFiles = 'sudo git clone '+ gitHub_address
 	print('configuring your DHCP Server')
+	
 	installGit()
 	os.chdir(localGit)  
 	runCommand('git init')
 	print("git initilaized")
 	runCommand(getConfigFiles)
+	os.system('cp '+replacefile+' '+localFileLocation)
+	localFileLocation = '/etc/dhcps.conf'
+	localGit = '/home'
+	replacefile = '/home/TestLabScripts/config/dhcpd.conf'
 	os.system('cp '+replacefile+' '+localFileLocation)
 	print('DHCP Server configured')
 	os.chdir(homeDir)
@@ -97,7 +106,7 @@ def configIP():
 	#'sudo nano /etc/network/interfaces'
 	setIP = 'sudo netplan apply'
 	localFileLocation = '/etc/netplan/'
-	replacefile = '/home/snacker/cs4900/openvas/git_repo/TestLabScripts/config/host_ip_setup.yaml'
+	replacefile = '/home/TestLabScripts/config/host_ip_setup.yaml'
 	print('configuring Ip settings')
 	os.system('cp '+replacefile+' '+localFileLocation)
 	runCommand(setIP)
