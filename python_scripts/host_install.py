@@ -94,11 +94,13 @@ def startDHCP():
 	return 0
 
 def configIP():
-	'sudo nano /etc/network/interfaces'
-	localFileLocation = '/etc/network/interfaces'
-	replacefile = '/home/snacker/cs4900/openvas/git_repo/TestLabScripts/config/interfaces'
+	#'sudo nano /etc/network/interfaces'
+	setIP = 'sudo netplan apply'
+	localFileLocation = '/etc/netplan/'
+	replacefile = '/home/snacker/cs4900/openvas/git_repo/TestLabScripts/config/host_ip_setup.yaml'
 	print('configuring Ip settings')
 	os.system('cp '+replacefile+' '+localFileLocation)
+	runCommand(setIP)
 	print('Ip settings configured')
 	return 0
 
