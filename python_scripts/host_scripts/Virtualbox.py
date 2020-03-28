@@ -30,6 +30,8 @@ def buildBox(name,ram_Size,iso_location,location,cpu_cores,vram,hardrive_Size,ad
         runCommand(" VBoxManage modifyvm openvas  --cableconnected1 off")
         #create NAT connection for internet
         runCommand("VBoxManage modifyvm openvas --nic2 NAT")
+        #Port forwarding so localhost can ssh in
+        runCommand("VBoxManage modifyvm openvas --natpf2 guestssh,tcp,127.0.0.1,2222,10.0.2.15,22")
         #Start the system
 
         runCommand("VBoxManage startvm "+name)
