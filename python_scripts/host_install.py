@@ -9,7 +9,7 @@ import os
 gitHub_address = 'https://github.com/alexboyd92/TestLabScripts.git'
 localFileLocation = '/etc/default/isc-dhcp-server'
 localGit = '/home'
-replacefile = '/home/TestLabScripts/config/isc-dhcp-server'
+replacefile = '/home/testlab/TestLabScripts/config/isc-dhcp-server'
 homeDir = '/home/testlab/'
 install = 'sudo apt-get install'
 # runs a bash command
@@ -32,7 +32,7 @@ def installVBox():
 	getKey = "wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -"
 	getKey2 = "wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -"
 	getRepo = 'sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"'
-	getVbox = 'sudo apt-get install virtualbox-6.0 -y'
+	getVbox = 'sudo apt-get install virtualbox -y'
 
 	runCommand(getKey)
 	runCommand(getKey2)
@@ -56,7 +56,7 @@ def installGit():
 def configDHCP(gitUser, gitPass):
 	localFileLocation = '/etc/default/isc-dhcp-server'
 	localGit = '/home'
-	replacefile = '/home/TestLabScripts/config/isc-dhcp-server'
+	replacefile = '/home/testlab/TestLabScripts/config/isc-dhcp-server'
 	
 	# auto inputs username/ password
 	getConfigFiles = 'sudo git clone'+gitUser+':'+gitPass+'@'+ gitHub_address
@@ -72,7 +72,7 @@ def configDHCP(gitUser, gitPass):
 	os.system('cp '+replacefile+' '+localFileLocation)
 	localFileLocation = '/etc/dhcps.conf'
 	localGit = '/home'
-	replacefile = '/home/TestLabScripts/config/dhcpd.conf'
+	replacefile = '/home/testlab/TestLabScripts/config/dhcpd.conf'
 	os.system('cp '+replacefile+' '+localFileLocation)
 	print('DHCP Server configured')
 	os.chdir(homeDir)
@@ -106,7 +106,7 @@ def configIP():
 	#'sudo nano /etc/network/interfaces'
 	setIP = 'sudo netplan apply'
 	localFileLocation = '/etc/netplan/'
-	replacefile = '/home/TestLabScripts/config/host_ip_setup.yaml'
+	replacefile = '/home/testlab/TestLabScripts/config/host_ip_setup.yaml'
 	print('configuring Ip settings')
 	os.system('cp '+replacefile+' '+localFileLocation)
 	runCommand(setIP)
