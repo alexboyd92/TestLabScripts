@@ -87,7 +87,7 @@ def installDHCP():
 
 
 def installOpenssh():
-	getssh = 'sudo apt-get install openssh-server-y'
+	getssh = 'sudo apt-get install openssh-server -y'
 	print('installing openssh')
 	runCommand(getssh)
 	print('openssh installed')
