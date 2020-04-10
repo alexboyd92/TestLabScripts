@@ -45,7 +45,7 @@ def main():
     #location of the iso for the machine to run
     iso_location = "unbuntu1804-testbed-server.iso"
     #Used for creating the virtual hardrive do not change this change the name value instead
-    location=name+"VirtualBox_VMs/"+name
+    location="VirtualBox_VMs/"+name
     #used to determine cpu cores
     cpu_cores=4
     #used to determine vram
