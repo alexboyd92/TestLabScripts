@@ -11,7 +11,7 @@ localFileLocation = '/etc/default/isc-dhcp-server'
 localGit = '/home'
 replacefile = '/home/TestLabScripts/config/isc-dhcp-server'
 homeDir = '/home/testlab/'
-install = 'sudo apt-get install '
+install = 'sudo apt-get install'
 # runs a bash command
 def runCommand(bashCommand):
 	process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
@@ -32,7 +32,7 @@ def installVBox():
 	getKey = "wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -"
 	getKey2 = "wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -"
 	getRepo = 'sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"'
-	getVbox = install + 'virtualbox'
+	getVbox = 'sudo apt-get install virtualbox-6.0 -y'
 
 	runCommand(getKey)
 	runCommand(getKey2)
@@ -46,7 +46,7 @@ def installVBox():
 
 # installs git
 def installGit():
-	getGit = install+'git'
+	getGit = 'sudo apt-get install git -y'
 	print('installing git')
 	runCommand(getGit)
 	print('git Installed')
@@ -79,7 +79,7 @@ def configDHCP(gitUser, gitPass):
 
 #installs DHCP server
 def installDHCP():
-	getDHCP = install + 'isc-dhcp-server'
+	getDHCP = 'sudo apt-get install isc-dhcp-server -y'
 	print('installing a DHCP Server')
 	runCommand(getDHCP)
 	print('DHCP Server installed')
@@ -87,7 +87,7 @@ def installDHCP():
 
 
 def installOpenssh():
-	getssh = install + 'openssh-server'
+	getssh = 'sudo apt-get install openssh-server-y'
 	print('installing openssh')
 	runCommand(getssh)
 	print('openssh installed')
