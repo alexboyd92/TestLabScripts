@@ -59,7 +59,7 @@ def configDHCP(gitUser, gitPass):
 	replacefile = '/home/testlab/TestLabScripts/config/isc-dhcp-server'
 	
 	# auto inputs username/ password
-	getConfigFiles = 'sudo git clone'+gitUser+':'+gitPass+'@'+ gitHub_address
+	getConfigFiles = 'sudo git clone '+gitUser+':'+gitPass+'@'+ gitHub_address
 	#testing
 	#getConfigFiles = 'sudo git clone '+ gitHub_address
 	print('configuring your DHCP Server')
