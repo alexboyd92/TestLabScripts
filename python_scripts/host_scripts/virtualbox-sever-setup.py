@@ -43,7 +43,7 @@ def main():
     # Maximum hardive space for the machine in mb
     hardrive_Size=10000
     #location of the iso for the machine to run
-    iso_location = "ubuntu-18.04.4-live-server-amd64.iso"
+    iso_location = "unbuntu1804-testbed-server.iso"
     #Used for creating the virtual hardrive do not change this change the name value instead
     location="VirtualBox_VMs/"+name
     #used to determine cpu cores
