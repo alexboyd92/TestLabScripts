@@ -1,6 +1,6 @@
 '''This is a script used to automate the creation of virtualbox machines
 it is defaulted to the openvas machine for this project with the ISO for
-the machine named openvas and in the same directory as the script'''
+the machine named ubuntu1804-testbed-server.iso in the directory where you run the script'''
 
 import subprocess
 
@@ -43,7 +43,7 @@ def main():
     # Maximum hardive space for the machine in mb
     hardrive_Size=10000
     #location of the iso for the machine to run
-    iso_location = "unbuntu1804-testbed-server.iso"
+    iso_location = "ubuntu1804-testbed-server.iso"
     #Used for creating the virtual hardrive do not change this change the name value instead
     location="VirtualBox_VMs/"+name
     #used to determine cpu cores
