@@ -28,3 +28,6 @@
 0 3 * * 0			/usr/bin/python3.6 /home/testlab/Documents/scripts/getGVMreadyForUse.py
 # restart
 30 3 * * 0			/home/testlab/Documents/scripts/restart-script
+
+# on boot restart the virtual machine
+@reboot /usr/bin/python3.6 /home/testlab/Documents/scripts/virtualbox-start.py
