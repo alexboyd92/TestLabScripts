@@ -21,13 +21,13 @@
 # 
 # m h  dom mon dow   command
 # Upgrade
-0 0 * * 0			/home/testlab/Documents/scripts/upgrade_script.py >>/home/testlab/Documents/update.log
+0 0 * * 0			/home/testlab/Documents/scripts/upgrade_script.py > /home/testlab/Documents/update.log 2>&1
 # Get gvm ready for update
 0 1 * * 0			/usr/bin/python3.6 /home/testlab/Documents/scripts/getGVMreadyForUpdate.py
 # 2 hours later get gvm ready for normal use 
 0 3 * * 0			/usr/bin/python3.6 /home/testlab/Documents/scripts/getGVMreadyForUse.py 
 # restart
-30 3 * * 0			/home/testlab/Documents/scripts/restart_script.py >>/home/testlab/Documents/restart.log
+30 3 * * 0			/home/testlab/Documents/scripts/restart_script.py > /home/testlab/Documents/restart.log 2>&1
 
 # on boot restart the virtual machine
 @reboot /usr/bin/python3.6 /home/testlab/Documents/scripts/virtualbox-start.py
