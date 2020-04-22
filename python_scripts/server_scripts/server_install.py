@@ -15,7 +15,9 @@ def update():
 
 def  main():
 	update()
-	exec(open('gvminstall.py').read())
+	# this is to be used once gvminstall is up and working properly
+	# 4/22/20 gvm install is not able to work properly
+	#exec(open('gvminstall.py').read())
 
 
 
